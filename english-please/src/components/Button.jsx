@@ -5,7 +5,7 @@ export default function Button(){
     return(
         <div id = "uploadBtn">
             <input type = "file"></input>
-            <Link to = "/mona"><button>CLICK ON ME</button></Link>
+            <Link to = "/informationPage"><button>CLICK ON ME</button></Link>
         </div>
     )
 }
