@@ -3,3 +3,23 @@
   width: 100%;
   background-color: white;
 }
+
+#image{
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+#info{
+  position: absolute;
+  background-color: aliceblue;
+  width: 30%;
+  height: 50%;
+  text-align: center;
+  top: 20%;
+  left: 55%;
+  overflow: auto;
+  overflow-wrap: break-word;
+  padding-left: 15px;
+  padding-right: 15px
+}
