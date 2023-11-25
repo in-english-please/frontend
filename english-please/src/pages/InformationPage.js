@@ -5,7 +5,7 @@ import UploadedImage from '../components/UploadedImage';
 export default function InformationPage() {
     return(
         <div>
-            <UploadedImage />
+            <div id = "rectangle"></div>
         </div>
     )
 }
