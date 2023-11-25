@@ -33,7 +33,7 @@ export default function Button(){
                 <input type="file" ref={inputRef} onChange={handleImageChange} style = {{display: "none"}}></input>
                 <button>Upload Your Image!</button>
             </div>
-            <Link to="/mona"><button>CLICK ON ME</button></Link>
+            <Link to="/informationPage"><button>CLICK ON ME</button></Link>
         </div>
     )
 }

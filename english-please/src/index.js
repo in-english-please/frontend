@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Mona from './pages/Mona.js'
+import InformationPage from './pages/InformationPage.js'
 import App from './App';
 
 import {
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     element: <App/>,
   },
   {
-    path: "mona",
-    element: <Mona/>
+    path: "informationPage",
+    element: <InformationPage/>
   }
 ]);
 
