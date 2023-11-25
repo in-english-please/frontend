@@ -4,7 +4,7 @@ import Button from './Button';
 export default function HeaderText(){
     return(
         <div id = "text-div">
-            <div class = "circle">
+            <div className = "circle">
                 <p id = "header">In English Please!</p>
                 <p id = "desc">Don’t know what ingredients are in your food?<br />
                 Companies hiding details in corporate buzzwords?<br />
