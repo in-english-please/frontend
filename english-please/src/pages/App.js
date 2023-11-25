@@ -1,4 +1,4 @@
-import HeaderText from './components/HeaderText';
+import HeaderText from '../components/HeaderText';
 import './App.css';
 
 function App() {
