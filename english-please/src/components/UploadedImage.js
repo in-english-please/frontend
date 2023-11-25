@@ -1,5 +1,5 @@
 import React from 'react-dom';
-import tempImg from "../UploadedImage/placeholder.jpeg";
+import tempImg from "../images/ingredientLabel.jpg";
 
 function UploadedImage(){
     return(
