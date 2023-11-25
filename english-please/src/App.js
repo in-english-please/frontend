@@ -1,8 +1,9 @@
+import HeaderText from './components/HeaderText';
 import './App.css';
 
 function App() {
   return (
-    <Text />
+    <HeaderText />
   );
 }
 
