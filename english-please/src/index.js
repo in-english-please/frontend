@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Mona from './pages/Mona.js'
 import App from './App';
 
 import {
@@ -11,13 +12,17 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <App/>,
   },
+  {
+    path: "mona",
+    element: <Mona/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router = {router}/>
   </React.StrictMode>
 );
