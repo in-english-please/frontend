@@ -24,19 +24,17 @@ export default function Button(){
     }
 
     // function to store the file asynchronously
-    const storeFileAsync = async (file) => {
+    const storeFileAsync = async (formData) => {
         try {
             const response = await fetch(`https://in-english-please-service.onrender.com/upload`, {
                 method: 'POST',
-                body: JSON.stringify(file)
+                body: formData
                 // form data object
                 // node side include multipart breakdown
             })
-            
             if (!response.ok){
                 throw new Error('HTTP error!')
             }
-
         } catch (err){
             console.log(err)
         }
@@ -46,9 +44,13 @@ export default function Button(){
     // updates image state
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
-        try{
-            await storeFileAsync(file);
 
+        let formData = new FormData();
+        formData.append('image', file)
+        console.log(formData)
+
+        try{
+            await storeFileAsync(formData);
             navigate('/informationPage')
         } catch(error){
             console.log(error)

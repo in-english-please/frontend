@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import './ToDoList.css'
 
 export default function ToDoList(){
     // used to set the initial value of the flag list
@@ -40,7 +41,6 @@ export default function ToDoList(){
         }
     }
 
-    // 
     const handleDeleteFlag = (index) => {
         const newFlags = [...flags];
         newFlags.splice(index, 1)
@@ -56,7 +56,7 @@ export default function ToDoList(){
                 {flags.map((flag, index) => (
                     <li key = {index}>
                         <span>{flag.text}</span>
-                        <button onClick = {() => handleDeleteFlag(index)}> Delete </button>
+                        <button id = "closeBtn" onClick = {() => handleDeleteFlag(index)}> Delete </button>
                     </li>
                 ))}
             </ul>
