@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import './ToDoList.css'
+import { UserContext } from "..";
 
 export default function ToDoList(){
     // used to set the initial value of the flag list
@@ -14,7 +15,7 @@ export default function ToDoList(){
     };
     
     // react hook to get the state of the flags
-    const [flags, setFlags] = useState(getStoredFlags);
+    const {flags, setFlags} = useContext(UserContext);
 
     // react hook to get the new flag state
     const [newFlags, setNewFlags] = useState("");
@@ -54,7 +55,7 @@ export default function ToDoList(){
             <div id = "to-do-list">
                 <input id = "input-flag" type = "text" value = {newFlags} onChange={(e) => setNewFlags(e.target.value)}/> <button id = "add-btn" onClick = {handleAddFlag}>Add</button>
             </div>
-            <ul >
+            <ul>
                 {flags.map((flag, index) => (
                     <li key = {index}>
                         <span id = "flag-text">{flag.text}</span>

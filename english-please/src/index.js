@@ -24,9 +24,10 @@ const router = createBrowserRouter([
 const Wrapper = (props) => {
   const [image, setImage] = useState(null);
   const [data, setData] = useState(null);
+  const [flags, setFlags] = useState([]);
 
   return (
-    <UserContext.Provider value={{ image, setImage, data, setData }}>
+    <UserContext.Provider value={{ image, setImage, data, setData, flags, setFlags }}>
       {props.children}
     </UserContext.Provider>
   )

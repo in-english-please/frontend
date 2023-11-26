@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import FlaggedItem from './FlaggedItem';
 import { UserContext } from '..';
 import './IngredientList.css';
 
 const getIngredientMap = (data) => {
+    if (!data) return {};
+
     let m = {};
     for (let t of data.translatedArray) {
         m[t.originalName] = t.translation
@@ -18,6 +20,7 @@ function IngredientList(props){
     const { data } = useContext(UserContext);
     const [tooltipText, setTooltipText] = useState(null);
     const [pos, setPos] = useState({ x: 0, y: 0 });
+    const {flags, setFlags} = useContext(UserContext);
 
     const handleMouseMove = (ev) => {
         setPos({
@@ -32,8 +35,11 @@ function IngredientList(props){
 
     let i = 0;
 
+    const textFlags = flags.map(f => f.text);
+
     if (data && data.originalIngredientsArray) {
         for (const ingredient of data.originalIngredientsArray) {
+            const highlight = textFlags.includes(ingredient);
             if (ingredient in ingredientMap) {
                 ingredientsList.push(
                     <span
@@ -44,13 +50,27 @@ function IngredientList(props){
                         onMouseLeave={() => {
                             setTooltipText(null);
                         }}
+                        style={highlight ? {
+                            textDecoration: "underline",
+                            color: "red"
+                        } : {}
+                    }
                     >
                         <b>{ingredient},</b>
                     </span>
                 )
             }
             else {
-                ingredientsList.push(<span key={i}>{ingredient},</span>)
+                ingredientsList.push(
+                    <span
+                        key={i}
+                        style={highlight ? {
+                            textDecoration: "underline",
+                            color: "red"
+                        } : {}
+                    }
+                    >{ingredient},</span>
+                )
             }
             i++;
         }
