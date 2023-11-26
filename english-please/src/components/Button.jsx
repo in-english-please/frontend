@@ -6,7 +6,6 @@ import redFlag from '../images/flag.png'
 import uploadSym from '../images/upload.png'
 import Flags from './Flags'
 import ToDoList from './ToDoList'
-import { UserContext } from '..';
 
 // component
 export default function Button(){
@@ -40,9 +39,12 @@ export default function Button(){
                 throw new Error('HTTP error!')
             }
             else {
-                let data = await response.json();
+                let data = await response.json()
                 console.log("got data:")
-                console.log(data)
+                //console.log(data)
+                importantData = data
+                //console.log(importantData)
+                // return data;
             }
         } catch (err){
             console.log(err)
@@ -58,11 +60,10 @@ export default function Button(){
         formData.append('image', file)
 
         try{
-            await storeFileAsync(formData);
-            setImage(event.target.files[0]);
+            // await storeFileAsync(formData);
             navigate('/informationPage')
         } catch(error){
-            console.log(error)
+            console.log(error);
         }
     }
 
@@ -81,3 +82,5 @@ export default function Button(){
         </div>
     )
 }
+
+export {importantData};
