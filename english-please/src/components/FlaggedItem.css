@@ -1,0 +1,16 @@
+#flaggeditem {
+    width: 200px;
+    height: 100px;
+    border-radius: 30px;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.259);
+    width: 30vw;
+    height: 3vh;
+}
+
+p {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 10px;
+}

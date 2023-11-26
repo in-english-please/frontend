@@ -33,7 +33,14 @@ export default function Button(){
                 // node side include multipart breakdown
             })
             if (!response.ok){
+                console.log("uh oh")
+                console.log(response)
                 throw new Error('HTTP error!')
+            }
+            else {
+                let data = await response.json();
+                console.log("got data:")
+                console.log(data)
             }
         } catch (err){
             console.log(err)
