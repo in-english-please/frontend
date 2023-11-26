@@ -7,6 +7,7 @@ export default function ToDoList(){
     const getStoredFlags = () => {
         // parses through local storage to find the array known as 'flags'
         const storedFlags = JSON.parse(localStorage.getItem('flags'));
+        //console.log(storedFlags.map(item => item.text));
         
         // return the array if it is found, if not return an empty array
         return storedFlags !== null ? storedFlags : [];
