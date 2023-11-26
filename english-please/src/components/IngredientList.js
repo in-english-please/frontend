@@ -81,7 +81,7 @@ function IngredientList(props){
             <h2>Ingredients:</h2>
             <div className='ingredient-container'>{ingredientsList}</div>
             <br />
-            <h4>Flagged items that appear in this item:</h4>
+            <h4>Your flagged items:</h4>
             <FlaggedItem flags={JSON.parse(localStorage.getItem('flags')).map(item => item.text)}/>
             <span
                 className='translation-hover'
