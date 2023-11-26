@@ -8,7 +8,7 @@ function IngredientList(props){
             <p>{props.ingredients}</p>
             <br />
             <h4>Flagged items that appear in this item:</h4>
-            <FlaggedItem flags={["apples", "banana"]}/>
+            <FlaggedItem flags={JSON.parse(localStorage.getItem('flags')).map(item => item.text)}/>
         </>
     )
 }
