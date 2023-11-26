@@ -6,6 +6,8 @@ function IngredientList(props){
         <>
             <h2>Ingredients:</h2>
             <p>{props.ingredients}</p>
+            <br />
+            <h4>Flagged items that appear in this item:</h4>
             <FlaggedItem flags={["apples", "banana"]}/>
         </>
     )
