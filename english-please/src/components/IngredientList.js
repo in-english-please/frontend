@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import FlaggedItem from './FlaggedItem';
 import { UserContext } from '..';
 import './IngredientList.css';
@@ -11,12 +11,22 @@ const getIngredientMap = (data) => {
     return m;
 }
 
+// move the span a little further to make sure it doesn't interfere with the mouse
+const mouseOffset = 5;
+
 function IngredientList(props){
-    const { data, setData } = useContext(UserContext);
+    const { data } = useContext(UserContext);
+    const [tooltipText, setTooltipText] = useState(null);
+    const [pos, setPos] = useState({ x: 0, y: 0 });
+
+    const handleMouseMove = (ev) => {
+        setPos({
+            x: ev.clientX,
+            y: ev.clientY,
+        });
+    }
 
     const ingredientMap = getIngredientMap(data);
-
-    console.log("data: ", data)
     
     let ingredientsList = [];
 
@@ -25,7 +35,19 @@ function IngredientList(props){
     if (data && data.originalIngredientsArray) {
         for (const ingredient of data.originalIngredientsArray) {
             if (ingredient in ingredientMap) {
-                ingredientsList.push(<span key={i}><b>{ingredient},</b></span>)
+                ingredientsList.push(
+                    <span
+                        key={i}
+                        onMouseEnter={() => {
+                            setTooltipText(ingredientMap[ingredient]);
+                        }}
+                        onMouseLeave={() => {
+                            setTooltipText(null);
+                        }}
+                    >
+                        <b>{ingredient},</b>
+                    </span>
+                )
             }
             else {
                 ingredientsList.push(<span key={i}>{ingredient},</span>)
@@ -35,13 +57,21 @@ function IngredientList(props){
     }
 
     return(
-        <>
+        <div onMouseMove={(ev)=> handleMouseMove(ev)}>
             <h2>Ingredients:</h2>
             <div className='ingredient-container'>{ingredientsList}</div>
             <br />
             <h4>Flagged items that appear in this item:</h4>
             <FlaggedItem flags={JSON.parse(localStorage.getItem('flags')).map(item => item.text)}/>
-        </>
+            <span
+                className='translation-hover'
+                hidden={!tooltipText}
+                style={{
+                  left: pos.x + mouseOffset,
+                  top: pos.y + mouseOffset,
+                }}
+            >{tooltipText}</span>
+        </div>
     )
 }
 

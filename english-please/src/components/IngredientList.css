@@ -1,3 +1,11 @@
 .ingredient-container > span {
     margin: 5px;
 }
+
+.translation-hover {
+    z-index: 3459823475934;
+    border: 1px solid black;
+    padding: 5px;
+    position: fixed;
+    background-color: white;
+}
