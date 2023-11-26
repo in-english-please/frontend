@@ -1,16 +1,18 @@
 // import statements
 import './Button.css';
 import { useNavigate } from 'react-router-dom';
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import redFlag from '../images/flag.png'
 import uploadSym from '../images/upload.png'
 import Flags from './Flags'
 import ToDoList from './ToDoList'
+import { UserContext } from '..';
 
 // component
 export default function Button(){
     // this initializes a React ref, this is used to reference input element
     const inputRef = useRef(null);
+    const { image, setImage } = useContext(UserContext);
 
     // initializes navigate, a react hook returning a function that navigates to page
     const navigate = useNavigate();
