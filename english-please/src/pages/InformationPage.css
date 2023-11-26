@@ -1,20 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
 #rectangle{
   height: 80vh;
   width: 100%;
   background-color: white;
 }
 
-#image{
+#imgContainer {
   position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.259);
+  width: 30vw;
+  height: 50vh;
+  text-align: center;
   top: 20%;
   left: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+
+}
+
+#imgContainer img {
+  height: 80%;
+  width: 80%;
 }
 
 #info{
+  font-family: 'Inter', sans-serif;
   position: absolute;
-  background-color: aliceblue;
-  width: 30%;
-  height: 50%;
+  background-color: rgb(249, 249, 249);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30vw;
+  height: 50vh;
   text-align: center;
   top: 20%;
   left: 55%;

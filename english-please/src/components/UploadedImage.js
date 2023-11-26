@@ -3,7 +3,10 @@ import tempImg from "../images/ingredientLabel.jpg";
 
 function UploadedImage(){
     return(
-        <img src={tempImg} alt="placeholder" />
+        <div id='imgContainer'>
+            <img src={tempImg} alt="placeholder" />
+        </div>
+        
     )
 };
 

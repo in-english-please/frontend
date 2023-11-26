@@ -1,5 +1,5 @@
 import React from 'react';
-import './InformationPage.css'
+import './InformationPage.css';
 import UploadedImage from '../components/UploadedImage';
 import IngredientList from '../components/IngredientList';
 
