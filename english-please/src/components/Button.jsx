@@ -56,10 +56,10 @@ export default function Button(){
 
         let formData = new FormData();
         formData.append('image', file)
-        console.log(formData)
 
         try{
-            // await storeFileAsync(formData);
+            await storeFileAsync(formData);
+            setImage(event.target.files[0]);
             navigate('/informationPage')
         } catch(error){
             console.log(error)

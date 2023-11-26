@@ -6,9 +6,8 @@ function UploadedImage(props){
 
     return(
         <div id='imgContainer'>
-            <img src={props.image} alt="placeholder" />
+            {props.image && <img src={URL.createObjectURL(props.image)} alt="placeholder" />}
         </div>
-        
     )
 };
 
