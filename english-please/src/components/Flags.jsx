@@ -5,7 +5,7 @@ export default function Flags(props){
     return (props.trigger) ? (
         <div className = "popup">
         <div id = "rectangle-flags-inner">
-            <button className = "close-btn" onClick = {() => props.setTrigger(false)}>close</button>
+            <button className = "close-btn" onClick = {() => props.setTrigger(false)}>Close</button>
             { props.children }
         </div>
     </div>

@@ -49,14 +49,15 @@ export default function ToDoList(){
 
     return (
         <div>
-            <h1>To Do List</h1>
-            <input type = "text" value = {newFlags} onChange={(e) => setNewFlags(e.target.value)}/>
-            <button onClick = {handleAddFlag}>Add</button>
-            <ul>
+            <h1 id = "title-list">To Do List</h1>
+            <div id = "to-do-list">
+                <input id = "input-flag" type = "text" value = {newFlags} onChange={(e) => setNewFlags(e.target.value)}/> <button id = "add-btn" onClick = {handleAddFlag}>Add</button>
+            </div>
+            <ul >
                 {flags.map((flag, index) => (
                     <li key = {index}>
-                        <span>{flag.text}</span>
-                        <button id = "closeBtn" onClick = {() => handleDeleteFlag(index)}> Delete </button>
+                        <span id = "flag-text">{flag.text}</span>
+                        <button id = "deleteBtn" onClick = {() => handleDeleteFlag(index)}> Delete </button>
                     </li>
                 ))}
             </ul>
