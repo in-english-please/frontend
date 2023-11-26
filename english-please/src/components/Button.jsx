@@ -1,9 +1,11 @@
 // import statements
 import './Button.css';
 import { useNavigate } from 'react-router-dom';
-import {useRef } from "react";
+import { useRef, useState} from "react";
 import redFlag from '../images/flag.png'
 import uploadSym from '../images/upload.png'
+import Flags from './Flags'
+import ToDoList from './ToDoList'
 
 // component
 export default function Button(){
@@ -13,6 +15,8 @@ export default function Button(){
     // initializes navigate, a react hook returning a function that navigates to page
     const navigate = useNavigate();
 
+    const [buttonPopup, setButtonPopup] = useState(false) 
+
     // a function that gets involved whenever the user clicks on the upload button
     // whenever the user clicks on the current inputRef
     const handleImageClick = () => {
@@ -21,21 +25,27 @@ export default function Button(){
 
     // function to store the file asynchronously
     const storeFileAsync = async (file) => {
-        return new Promise((resolve, reject) => {
-        // Simulate storing the file, replace with your backend logic
-        setTimeout(() => {
-            console.log('File stored:', file);
-            resolve();
-        }, 1000); // Simulating a delay, replace with your actual backend request
-        });
+        try {
+            const response = await fetch(`https://in-english-please-service.onrender.com/upload`, {
+                method: 'POST',
+                body: JSON.stringify(file)
+                // form data object
+                // node side include multipart breakdown
+            })
+            
+            if (!response.ok){
+                throw new Error('HTTP error!')
+            }
+
+        } catch (err){
+            console.log(err)
+        }
     };
 
     // whenever the user selects an image file w/ file input
     // updates image state
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
-        console.log(file)
-        
         try{
             await storeFileAsync(file);
 
@@ -52,7 +62,10 @@ export default function Button(){
                 <button id = "uploadBtn">Upload Your Image!<img id = "uploadSym" src = {uploadSym} alt = "symbol"/></button>
             </div>
             <div id = "flag-container">
-                <p>OR</p> <p id = "red-text">ADD YOUR FLAGS</p> <img id = "red-flag" src = {redFlag} alt = 'flag-icon'/>
+                <p>OR</p> <p onClick= {() => {setButtonPopup(true)}} id = "red-text">ADD YOUR FLAGS</p> <img id = "red-flag" src = {redFlag} alt = 'flag-icon'/>
+                <Flags trigger = {buttonPopup} setTrigger = {setButtonPopup}>
+                    <ToDoList/>
+                </Flags>
             </div>
         </div>
     )

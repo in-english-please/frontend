@@ -47,7 +47,11 @@
 }
 
 #red-text {
-    color: red;
+    color: #D73B3B;
     font-weight: 600;
     padding-left: 0.35rem;
+}
+
+#red-text:hover{
+    color: #B02F2F;
 }
