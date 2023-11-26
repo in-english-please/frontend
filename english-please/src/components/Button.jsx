@@ -1,7 +1,7 @@
 // import statements
 import './Button.css';
 import { useNavigate } from 'react-router-dom';
-import { useRef, useState} from "react";
+import { useRef, useState } from "react";
 import redFlag from '../images/flag.png'
 import uploadSym from '../images/upload.png'
 import Flags from './Flags'
@@ -57,7 +57,7 @@ export default function Button(){
         console.log(formData)
 
         try{
-            await storeFileAsync(formData);
+            // await storeFileAsync(formData);
             navigate('/informationPage')
         } catch(error){
             console.log(error)

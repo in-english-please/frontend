@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     path: "informationPage",
     element: <InformationPage/>
   }
-]);
+], {basename: '/frontend'});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

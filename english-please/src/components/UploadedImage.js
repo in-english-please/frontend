@@ -1,10 +1,12 @@
 import React from 'react-dom';
 import tempImg from "../images/ingredientLabel.jpg";
 
-function UploadedImage(){
+function UploadedImage(props){
+    console.log(props.image)
+
     return(
         <div id='imgContainer'>
-            <img src={tempImg} alt="placeholder" />
+            <img src={props.image} alt="placeholder" />
         </div>
         
     )
