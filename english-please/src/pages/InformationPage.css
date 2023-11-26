@@ -1,9 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 
+#header-bar{
+  margin-top: 0rem;
+  padding-top: 0rem;
+  height: 10vh;
+  background-color: white;
+  border-bottom: solid 0.1rem #303030;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#header-text{
+  margin-top: 0rem;
+  padding-top: 1rem;
+  margin-bottom: 0rem;
+  margin-left: 2rem;
+  padding-bottom: 0rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#view-text{
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 2rem;
+  margin-top: 0rem;
+  padding-top: 0rem;
+}
+
+#flag-img{
+  margin-top: 0.15rem;
+  margin-left: 0.15rem;
+  width: 1rem;
+  height: 1rem;
+}
+
 #rectangle{
-  height: 80vh;
+  height: 70vh;
   width: 100%;
   background-color: white;
+}
+
+#flex-container{
+  display: flex;
+  flex-direction: row;
 }
 
 #imgContainer {
