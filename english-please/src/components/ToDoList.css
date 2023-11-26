@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+#div-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #add-btn, #deleteBtn{
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -7,6 +16,10 @@
     background-color: #D0E3D2;
     border-radius: 10px;
     border: none;
+}
+
+#title-list{
+    font-family: 'Inter', sans-serif;
 }
 
 #add-btn:hover, #deleteBtn:hover{

@@ -7,6 +7,7 @@ import { UserContext } from '../index'
 import flag from '../images/flag.png'
 import Flags from '../components/Flags'
 import ToDoList from '../components/ToDoList'
+import { Link } from 'react-router-dom'
 
 export default function InformationPage() {
     const imageText = "Sugar, milk, eggs, salt, lemon juice, bread, chicken, celery, peach, orange juice, tumeric";
@@ -16,14 +17,14 @@ export default function InformationPage() {
     return(
         <>
             <div id = "header-bar">
-                <p id = "header-text">In English Please!</p>
+                <Link to = "/"><p id = "header-text">In English Please!</p></Link>
                 <div id = "flex-container"><p onClick= {() => {setButtonPopup(true)}} id = "view-text">View Flags!</p> <img id = "flag-img" src = {flag}/></div>
             </div>
             <div id = "rectangle"></div>
             <div id="image"><UploadedImage image = {image}/></div>
             <div id="info"><IngredientList ingredients={imageText}/></div>
-
-            <Flags trigger = {buttonPopup} setTrigger = {setButtonPopup}>
+            
+            <Flags trigger = {buttonPopup} setTrigger = {() => {setButtonPopup()}}>
                 <ToDoList/>
             </Flags>
         </>
