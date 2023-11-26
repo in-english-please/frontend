@@ -49,7 +49,7 @@ export default function ToDoList(){
     }
 
     return (
-        <div>
+        <div id = "div-content">
             <h1 id = "title-list">Flagged Content</h1>
             <div id = "to-do-list">
                 <input id = "input-flag" type = "text" value = {newFlags} onChange={(e) => setNewFlags(e.target.value)}/> <button id = "add-btn" onClick = {handleAddFlag}>Add</button>
