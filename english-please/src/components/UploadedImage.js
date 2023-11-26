@@ -1,5 +1,4 @@
 import React from 'react-dom';
-import tempImg from "../images/ingredientLabel.jpg";
 
 function UploadedImage(props){
     console.log(props.image)

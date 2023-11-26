@@ -13,6 +13,7 @@ export default function Button(){
     // this initializes a React ref, this is used to reference input element
     const inputRef = useRef(null);
     const { image, setImage } = useContext(UserContext);
+    const { data, setData } = useContext(UserContext);
 
     // initializes navigate, a react hook returning a function that navigates to page
     const navigate = useNavigate();
@@ -40,9 +41,10 @@ export default function Button(){
                 throw new Error('HTTP error!')
             }
             else {
-                let data = await response.json();
+                let data = await response.json()
                 console.log("got data:")
                 console.log(data)
+                setData(data);
             }
         } catch (err){
             console.log(err)
@@ -54,15 +56,16 @@ export default function Button(){
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
 
+        setImage(file);
+
         let formData = new FormData();
-        formData.append('image', file)
+        formData.append('image', file);
 
         try{
             await storeFileAsync(formData);
-            setImage(event.target.files[0]);
             navigate('/informationPage')
         } catch(error){
-            console.log(error)
+            console.log(error);
         }
     }
 
